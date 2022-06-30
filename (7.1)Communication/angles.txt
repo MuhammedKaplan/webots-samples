@@ -1,0 +1,12 @@
+0 		north
+1.5707  	east
+3.1414,-3.1414  south
+-1.5707		west
+
+en yakına gidecek şekilde karar verecek
+
+     111
+     101
+     111
+robot sıkışırsa veya gezmediği uzak kalan bölgeler olursa
+halledin mk artık o kadar beyin yoksa sg
