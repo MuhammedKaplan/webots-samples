@@ -1,0 +1,236 @@
+#VRML_SIM R2021a utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.31250841321837025 -0.9022516406069488 -0.2971202932985314 4.660045388309656
+  position 4.100008103382152 2.820562529078502 0.03078345595460026
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 5 5
+}
+DEF MY_ROBOT Robot {
+  translation 0.269995 0.04972 -1.80002
+  rotation 1.6523397146372827e-09 -4.35831968186022e-09 -0.9999999999999999 8.940696716308595e-08
+  children [
+    InertialUnit {
+      name "iu"
+    }
+    Compass {
+      rotation 1 0 0 -1.5707
+    }
+    DEF DS DistanceSensor {
+      translation 0 -0.0075 0.138
+      rotation -0.577349935856137 0.577349935856137 0.5773509358560258 -2.094395307179586
+      name "DS"
+    }
+    DEF BODY_GROUP Group {
+      children [
+        Transform {
+          translation 0 0 0.12
+          children [
+            DEF F_DS_BRIDGE Shape {
+              appearance PBRAppearance {
+                baseColor 1 0 0
+                metalness 0
+              }
+              geometry Box {
+                size 0.025 0.015 0.04
+              }
+            }
+          ]
+        }
+        DEF BODY Shape {
+          appearance PBRAppearance {
+            baseColor 0.917647 0.145098 0.145098
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.1 0.05 0.2
+          }
+        }
+      ]
+    }
+    DEF wheelLeftF HingeJoint {
+      jointParameters HingeJointParameters {
+        position -6.635594272964409e-16
+        anchor 0.063 0 0.07
+      }
+      device [
+        RotationalMotor {
+          name "leftF"
+        }
+      ]
+      endPoint Solid {
+        translation 0.063 3.673210014438536e-08 0.07
+        rotation -4.0476603437539346e-09 4.047675347930969e-09 1 1.5707999999999958
+        children [
+          DEF WHEEL Shape {
+            appearance PBRAppearance {
+              baseColor 0.305882 0.898039 0.25098
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.025
+              radius 0.05
+              subdivision 24
+            }
+          }
+        ]
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF wheelRightF HingeJoint {
+      jointParameters HingeJointParameters {
+        position -6.255633379947801e-16
+        anchor -0.063 0 0.07
+      }
+      device [
+        RotationalMotor {
+          name "rightF"
+        }
+      ]
+      endPoint Solid {
+        translation -0.063 1.3523254169627305e-16 0.07
+        rotation -4.094101066011661e-09 4.094115869020476e-09 1 1.5707999999999982
+        children [
+          USE WHEEL
+        ]
+        name "solid(1)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF wheelLeftR HingeJoint {
+      jointParameters HingeJointParameters {
+        position -4.81560842694946e-16
+        anchor 0.063 0 -0.07
+      }
+      device [
+        RotationalMotor {
+          name "leftR"
+        }
+      ]
+      endPoint Solid {
+        translation 0.063 -1.0302795925398363e-16 -0.07
+        rotation 4.001355370678763e-09 -4.001370458252083e-09 1 1.5707999999999982
+        children [
+          USE WHEEL
+        ]
+        name "solid(2)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF wheelRightR HingeJoint {
+      jointParameters HingeJointParameters {
+        position -8.99793963033722e-16
+        anchor -0.063 0 -0.07
+      }
+      device [
+        RotationalMotor {
+          name "rightR"
+        }
+      ]
+      endPoint Solid {
+        translation -0.063 -9.73005386707977e-16 -0.07
+        rotation 4.016185659908397e-09 -4.016200855419996e-09 1 1.5707999999999935
+        children [
+          USE WHEEL
+        ]
+        name "solid(3)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+  ]
+  boundingObject USE BODY_GROUP
+  physics Physics {
+    density -1
+    mass 1
+  }
+  controller "supervisor"
+  supervisor TRUE
+}
+Solid {
+  translation 0.280179 0.37 -0.412976
+  children [
+    DEF RAMP Group {
+      children [
+        Transform {
+          translation 0 -0.0289 -0.567724
+          rotation 1 0 0 -0.261795307179586
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 1 0 0
+              }
+              geometry Box {
+                size 0.3 0.05 0.68
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0 -0.0328156 0.573298
+          rotation 1 0 0 0.261799
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 1 0 0
+              }
+              geometry Box {
+                size 0.3 0.05 0.68
+              }
+            }
+          ]
+        }
+        Transform {
+          children [
+            Shape {
+              appearance DEF BOX_APP PBRAppearance {
+                baseColor 0 0 1
+                metalness 0
+              }
+              geometry Box {
+                size 0.3 0.16 0.5
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  boundingObject USE RAMP
+  physics Physics {
+  }
+}
+Solid {
+  translation 0.302886 0.12 0.780408
+  children [
+    DEF PIT Shape {
+      appearance PBRAppearance {
+        baseColor 0.635294 0.572549 0
+        metalness 0
+      }
+      geometry Box {
+        size 0.4 0.2 0.7
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE PIT
+  physics Physics {
+  }
+}

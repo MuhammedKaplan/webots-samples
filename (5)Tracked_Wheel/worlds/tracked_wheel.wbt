@@ -1,0 +1,260 @@
+#VRML_SIM R2021a utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.8592765321050836 0.4925509642255114 0.13797604507297737 5.652910439144437
+  position 0.5435539436556263 0.5555754550338174 0.7804150075812637
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 2 2
+  wallHeight 0.2
+}
+DEF MY_ROBOT Robot {
+  translation 0.733252 0.09972 -0.644949
+  rotation 4.47035e-08 1 4.47035e-08 -1.5707953071795862
+  children [
+    Accelerometer {
+    }
+    InertialUnit {
+      name "iu"
+    }
+    Compass {
+      rotation 1 0 0 -1.5707
+    }
+    DEF DS DistanceSensor {
+      translation 0 -0.0075 0.138
+      rotation -0.577349935856137 0.577349935856137 0.5773509358560258 -2.094395307179586
+      name "DS"
+    }
+    DEF BODY_GROUP Group {
+      children [
+        Transform {
+          translation 0 0 0.12
+          children [
+            DEF F_DS_BRIDGE Shape {
+              appearance PBRAppearance {
+                baseColor 1 0 0
+                metalness 0
+              }
+              geometry Box {
+                size 0.025 0.015 0.04
+              }
+            }
+          ]
+        }
+        DEF BODY Shape {
+          appearance PBRAppearance {
+            baseColor 0.917647 0.145098 0.145098
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.1 0.05 0.2
+          }
+        }
+      ]
+    }
+    DEF wheelLeftF HingeJoint {
+      jointParameters HingeJointParameters {
+        position -6.635594272964409e-16
+        anchor 0.063 0 0.06
+      }
+      device [
+        RotationalMotor {
+          name "leftF"
+        }
+      ]
+      endPoint Solid {
+        translation 0.06300062524118802 2.9721106103784412e-06 0.06001070815909836
+        rotation 0.013462832019816807 -0.013455736650634475 -0.999818831241538 4.712202303208633
+        children [
+          DEF WHEEL Shape {
+            appearance PBRAppearance {
+              baseColor 0.305882 0.898039 0.25098
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.025
+              radius 0.06
+              subdivision 24
+            }
+          }
+        ]
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF wheelRightF HingeJoint {
+      jointParameters HingeJointParameters {
+        position -6.255633379947801e-16
+        anchor -0.063 0 0.06
+      }
+      device [
+        RotationalMotor {
+          name "rightF"
+        }
+      ]
+      endPoint Solid {
+        translation -0.06299937666354682 3.4720301984468938e-06 0.060011015787380946
+        rotation 0.013462831734571351 -0.01345573638394822 -0.999818831248968 4.712202303295408
+        children [
+          USE WHEEL
+        ]
+        name "solid(1)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF wheelLeftR HingeJoint {
+      jointParameters HingeJointParameters {
+        position -4.81560842694946e-16
+        anchor 0.063 0 -0.06
+      }
+      device [
+        RotationalMotor {
+          name "leftR"
+        }
+      ]
+      endPoint Solid {
+        translation 0.06299999882031213 -7.463737894807763e-06 -0.06000515346020409
+        rotation 0.013462823592424822 -0.013455735488328688 -0.9998188313706575 4.712202330173916
+        children [
+          USE WHEEL
+        ]
+        name "solid(2)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF wheelRightR HingeJoint {
+      jointParameters HingeJointParameters {
+        position -8.99793963033722e-16
+        anchor -0.063 0 -0.06
+      }
+      device [
+        RotationalMotor {
+          name "rightR"
+        }
+      ]
+      endPoint Solid {
+        translation -0.06300000129905796 -7.465950348796727e-06 -0.0600051537475003
+        rotation 0.013462823602760288 -0.013455735498672166 -0.9998188313703793 4.7122023301736125
+        children [
+          USE WHEEL
+        ]
+        name "solid(3)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+  ]
+  boundingObject USE BODY_GROUP
+  physics Physics {
+    density -1
+    mass 1
+  }
+  controller "supervisor"
+  supervisor TRUE
+}
+DEF MY_ROBOT_TRACK Robot {
+  translation 0.732544 0.09972 0.0103478
+  rotation 4.47035e-08 1 4.47035e-08 -1.5707953071795862
+  children [
+    Accelerometer {
+    }
+    InertialUnit {
+      name "iu"
+    }
+    Compass {
+      rotation 1 0 0 -1.5707
+    }
+    DEF DS DistanceSensor {
+      translation 0 -0.0075 0.138
+      rotation -0.577349935856137 0.577349935856137 0.5773509358560258 -2.094395307179586
+      name "DS"
+    }
+    DEF BODY_GROUP Group {
+      children [
+        Transform {
+          translation 0 0 0.12
+          children [
+            DEF F_DS_BRIDGE Shape {
+              appearance PBRAppearance {
+                baseColor 1 0 0
+                metalness 0
+              }
+              geometry Box {
+                size 0.025 0.015 0.04
+              }
+            }
+          ]
+        }
+        DEF BODY Shape {
+          appearance PBRAppearance {
+            baseColor 0.917647 0.145098 0.145098
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.1 0.05 0.2
+          }
+        }
+      ]
+    }
+    DEF LEFT_TRACK Track {
+      children [
+        DEF WHEEL1 TrackWheel {
+          children [
+            DEF TRACK_WHEEL_BIG Transform {
+              translation 0.14 0 0
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColorMap ImageTexture {
+                      url [
+                        "textures/tank_wheel.jpg"
+                      ]
+                    }
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    height 0.03
+                    radius 0.092
+                    subdivision 20
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+      name "leftTrack"
+    }
+  ]
+  name "robot(1)"
+  boundingObject USE BODY_GROUP
+  physics Physics {
+    density -1
+    mass 1
+  }
+  controller "supervisor"
+  supervisor TRUE
+}
+WoodenPallet {
+  translation 0.149135 -3.99681e-15 0.0636357
+  size 0.6 0.07 0.7
+  lathNumber 4
+  lathWidth 0.03
+  mass 1
+}
