@@ -1,0 +1,1628 @@
+#VRML_SIM R2021a utf8
+DEF _ WorldInfo {
+  info [
+    "Example use of a Supervisor to manipulate the world."
+  ]
+  title "Supervisor Programming"
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.10316772008163798 0.9886087800886083 0.10958604594048589 4.640627773240687
+  position -19.0134348564826 -9.207404522472782 -11.794895038891129
+  followType "None"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation 0 -12.8 -2.55
+  floorSize 25 25
+  wallHeight 0.2
+}
+Robot {
+  translation -9.5 -12.46 -12.75
+  rotation 0 1 0 1.5707
+  children [
+    DEF BODY_GROUP Group {
+      children [
+        DEF BODY Shape {
+          appearance PBRAppearance {
+            baseColor 0.917647 0.145098 0.145098
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.1 0.05 0.2
+          }
+        }
+        Transform {
+          translation 0 0 0.12
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.917647 0.145098 0.145098
+                metalness 0
+              }
+              geometry Box {
+                size 0.02 0.02 0.04
+              }
+            }
+          ]
+        }
+      ]
+    }
+    DEF wheelLeftF HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0.06 0 0.05
+      }
+      device [
+        PositionSensor {
+          name "ps_left"
+        }
+        RotationalMotor {
+          name "leftF"
+        }
+      ]
+      endPoint Solid {
+        translation 0.06 0 0.05
+        rotation 0 1.5700895750559044e-16 1 1.5707999999999989
+        children [
+          DEF WHEEL Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.05
+              subdivision 24
+            }
+          }
+        ]
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF wheelRightF HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor -0.06 0 0.05
+      }
+      device [
+        RotationalMotor {
+          name "rightF"
+        }
+        PositionSensor {
+          name "ps_right"
+        }
+      ]
+      endPoint Solid {
+        translation -0.06 0 0.05
+        rotation -9.420537450335423e-16 0 1 1.570799999999999
+        children [
+          USE WHEEL
+        ]
+        name "solid(1)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF wheelLeftR HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0.06 0 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "leftR"
+        }
+      ]
+      endPoint Solid {
+        translation 0.06 0 -0.05
+        rotation 2.355134362583857e-16 -2.355134362583857e-16 1 1.5707999999999984
+        children [
+          USE WHEEL
+        ]
+        name "solid(2)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF wheelRightR HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor -0.06 0 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "rightR"
+        }
+      ]
+      endPoint Solid {
+        translation -0.06 0 -0.05
+        rotation -0.17432632940257634 0.1743269790766069 0.9691338582688404 1.6021473732885239
+        children [
+          USE WHEEL
+        ]
+        name "solid(3)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    InertialUnit {
+      name "iu"
+    }
+    Compass {
+    }
+    DistanceSensor {
+      translation 0 -0.01 0.135
+      rotation 0 0 1 -1.5707
+      name "ds_fall1"
+    }
+    DistanceSensor {
+      translation 0 0.01 0.135
+      rotation 0 0 1 1.5707
+      name "ds_fall2"
+    }
+    DistanceSensor {
+      translation 0 0 0.135
+      rotation 0 1 0 -1.5707
+      name "ds_front"
+      lookupTable [
+        0 0 0
+        0.8 2000 0
+      ]
+    }
+    DistanceSensor {
+      translation 0 0 0.135
+      rotation 0 1 0 -1.957
+      name "ds_front_right"
+      lookupTable [
+        0 0 0
+        0.8 2000 0
+      ]
+    }
+    DistanceSensor {
+      translation 0 0 0.135
+      rotation 0 1 0 -1.184
+      name "ds_front_left"
+      lookupTable [
+        0 0 0
+        0.8 2000 0
+      ]
+    }
+    DistanceSensor {
+      translation 0.05 0 0
+      name "ds_left"
+      lookupTable [
+        0 0 0
+        0.8 2000 0
+      ]
+    }
+    DistanceSensor {
+      translation -0.05 0 0
+      rotation 0 1 0 3.1414
+      name "ds_right"
+      lookupTable [
+        0 0 0
+        0.8 2000 0
+      ]
+    }
+  ]
+  boundingObject USE BODY_GROUP
+  physics Physics {
+    density -1
+    mass 1
+  }
+  controller "debris_test"
+  supervisor TRUE
+}
+Solid {
+  translation -0.02680038397447359 -21.400592031389547 -2.319387385126826
+  rotation -0.9339722508002742 -0.35721872324158527 0.009519375017378377 0.05788344372552595
+  children [
+    Solid {
+      translation -1.181743840158211e-17 9.38644329316258 0
+      rotation 0 1 0 1.0445965899975968e-22
+      children [
+        DEF taban Shape {
+          appearance PBRAppearance {
+            baseColor 0.443137 0.443137 0.443137
+            metalness 0
+          }
+          geometry Box {
+            size 20 0.1 20
+          }
+        }
+      ]
+      name "solid_floor"
+      boundingObject USE taban
+      physics Physics {
+        mass 1
+      }
+    }
+    Solid {
+      translation 0.370003 8.7756 7.53109
+      rotation -0.6546540822242307 0.6546540822242307 -0.37796304747197285 -2.418865307179586
+      children [
+        DEF kolon4 Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+            metalness 0
+          }
+          geometry Box {
+            size 2 13 0.3
+          }
+        }
+      ]
+      boundingObject USE kolon4
+      physics Physics {
+        mass 1
+      }
+    }
+  ]
+  physics Physics {
+    mass 1
+  }
+}
+Solid {
+  translation -5.520443871398863 -11.664799215168665 -11.453721556986281
+  rotation -0.9586247486201407 0.27812116587437696 -0.060722388174787666 -0.3330602291405369
+  children [
+    Solid {
+      children [
+        DEF a Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 2.3 1.4 0.7
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject USE a
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.01 0.59 1.03
+      children [
+        DEF b Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 2.5 0.3 2.5
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject USE b
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0 0.55 2.5
+      children [
+        DEF c Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 3.2 0.5 0.8
+          }
+        }
+      ]
+      name "solid(3)"
+      boundingObject USE c
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation -1.89 0.64 1.33
+      children [
+        DEF d Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 1.6 0.2 3.4
+          }
+        }
+      ]
+      boundingObject USE d
+      physics Physics {
+        mass 0.3
+      }
+    }
+  ]
+  name "solid(1)"
+  physics Physics {
+    mass 0.3
+  }
+}
+Solid {
+  translation 2.009377081466287 -11.543658156293397 -9.214065326034719
+  rotation 0.8379912501132643 0.5333140942192731 -0.1155280989226642 0.3799522836626312
+  children [
+    Solid {
+      children [
+        DEF a Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 2.3 1.4 0.7
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject USE a
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.01 0.59 1.03
+      children [
+        DEF b Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 2.5 0.3 2.5
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject USE b
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0 0.55 2.5
+      children [
+        DEF c Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 3.2 0.5 0.8
+          }
+        }
+      ]
+      name "solid(3)"
+      boundingObject USE c
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation -1.89 0.64 1.33
+      children [
+        DEF d Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 1.6 0.2 3.4
+          }
+        }
+      ]
+      boundingObject USE d
+      physics Physics {
+        mass 0.3
+      }
+    }
+  ]
+  name "solid(2)"
+  physics Physics {
+    mass 0.3
+  }
+}
+Solid {
+  translation -1.6625096784382498 -11.131484762364288 -1.598145720974181
+  rotation 0.8931012315793675 0.43967263746905194 -0.09517437686911724 0.3570142355490218
+  children [
+    Solid {
+      children [
+        DEF a Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 2.3 1.4 0.7
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject USE a
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.01 0.59 1.03
+      children [
+        DEF b Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 2.5 0.3 2.5
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject USE b
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0 0.55 2.5
+      children [
+        DEF c Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 3.2 0.5 0.8
+          }
+        }
+      ]
+      name "solid(3)"
+      boundingObject USE c
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation -1.89 0.64 1.33
+      children [
+        DEF d Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 1.6 0.2 3.4
+          }
+        }
+      ]
+      boundingObject USE d
+      physics Physics {
+        mass 0.3
+      }
+    }
+  ]
+  name "solid(3)"
+  physics Physics {
+    mass 0.3
+  }
+}
+Solid {
+  translation 4.682689365228856 -10.360975777803628 5.687167095287684
+  rotation 0.9909296254790093 0.07500027805406284 -0.11150531664384236 3.110371450767145
+  children [
+    Solid {
+      children [
+        DEF a Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 2.3 1.4 0.7
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject USE a
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.01 0.59 1.03
+      children [
+        DEF b Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 2.5 0.3 2.5
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject USE b
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0 0.55 2.5
+      children [
+        DEF c Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 3.2 0.5 0.8
+          }
+        }
+      ]
+      name "solid(3)"
+      boundingObject USE c
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation -1.89 0.64 1.33
+      children [
+        DEF d Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 1.6 0.2 3.4
+          }
+        }
+      ]
+      boundingObject USE d
+      physics Physics {
+        mass 0.3
+      }
+    }
+  ]
+  name "solid(4)"
+  physics Physics {
+    mass 0.3
+  }
+}
+Solid {
+  translation -6.406750538247042 -12.063193115813563 -6.747040895239478
+  rotation -0.22937753811306766 -0.033311435542521216 -0.9727673376873243 -3.0707970092326518
+  children [
+    Solid {
+      translation 0 0.02 -0.28
+      children [
+        DEF a Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 1.9 0.1 2.5
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject USE a
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.516391 -0.283828 -0.769448
+      rotation 0.5841502283802941 -0.34641913543657127 -0.7340042869674731 -1.7875453071795864
+      children [
+        DEF b Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 0.2 0.7 0.7
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject USE b
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.25965 -0.26437 0.0165855
+      rotation -0.40925816793216624 0.8434693461033782 0.3479471427742242 -1.642095307179586
+      children [
+        DEF c Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 0.1 1 1.5
+          }
+        }
+      ]
+      boundingObject USE c
+      physics Physics {
+        mass 0.3
+      }
+    }
+  ]
+  name "solid(5)"
+  physics Physics {
+    mass 0.3
+  }
+}
+Solid {
+  translation 6.909879175542319 -11.904579893043051 -10.772692091062812
+  rotation -0.2751242771539824 -0.9081854593979802 0.3154454048778936 -0.9685906028816004
+  children [
+    Solid {
+      translation 0 0.02 -0.28
+      children [
+        DEF a Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 1.9 0.1 2.5
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject USE a
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.516391 -0.283828 -0.769448
+      rotation 0.5841502283802941 -0.34641913543657127 -0.7340042869674731 -1.7875453071795864
+      children [
+        DEF b Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 0.2 0.7 0.7
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject USE b
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.25965 -0.26437 0.0165855
+      rotation -0.40925816793216624 0.8434693461033782 0.3479471427742242 -1.642095307179586
+      children [
+        DEF c Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 0.1 1 1.5
+          }
+        }
+      ]
+      boundingObject USE c
+      physics Physics {
+        mass 0.3
+      }
+    }
+  ]
+  name "solid(6)"
+  physics Physics {
+    mass 0.3
+  }
+}
+Solid {
+  translation 7.381359117630662 -10.822802149257576 4.3673672994512795
+  rotation 0.10870123010711767 -0.9914396442803588 -0.07232893143435266 -1.2150779662750255
+  children [
+    Solid {
+      translation 0 0.02 -0.28
+      children [
+        DEF a Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 1.9 0.1 2.5
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject USE a
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.516391 -0.283828 -0.769448
+      rotation 0.5841502283802941 -0.34641913543657127 -0.7340042869674731 -1.7875453071795864
+      children [
+        DEF b Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 0.2 0.7 0.7
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject USE b
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.25965 -0.26437 0.0165855
+      rotation -0.40925816793216624 0.8434693461033782 0.3479471427742242 -1.642095307179586
+      children [
+        DEF c Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 0.1 1 1.5
+          }
+        }
+      ]
+      boundingObject USE c
+      physics Physics {
+        mass 0.3
+      }
+    }
+  ]
+  name "solid(7)"
+  physics Physics {
+    mass 0.3
+  }
+}
+Solid {
+  translation -2.3417883210686314 -12.228715362023781 -9.80508023387314
+  rotation -0.18516070780788318 -0.03223906512284487 -0.9821792886047275 -3.072614899356035
+  children [
+    Solid {
+      translation 0 0.02 -0.28
+      children [
+        DEF a Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 1.9 0.1 2.5
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject USE a
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.516391 -0.283828 -0.769448
+      rotation 0.5841502283802941 -0.34641913543657127 -0.7340042869674731 -1.7875453071795864
+      children [
+        DEF b Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 0.2 0.7 0.7
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject USE b
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.25965 -0.26437 0.0165855
+      rotation -0.40925816793216624 0.8434693461033782 0.3479471427742242 -1.642095307179586
+      children [
+        DEF c Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 0.1 1 1.5
+          }
+        }
+      ]
+      boundingObject USE c
+      physics Physics {
+        mass 0.3
+      }
+    }
+  ]
+  name "solid(8)"
+  physics Physics {
+    mass 0.3
+  }
+}
+Solid {
+  translation 0.8057656911765501 -11.449102084638918 4.602302160965225
+  rotation -0.7770964965469335 -0.040396379198151484 -0.6280837265860028 -3.0620217881070393
+  children [
+    Solid {
+      translation 0 0.02 -0.28
+      children [
+        DEF a Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 1.9 0.1 2.5
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject USE a
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.516391 -0.283828 -0.769448
+      rotation 0.5841502283802941 -0.34641913543657127 -0.7340042869674731 -1.7875453071795864
+      children [
+        DEF b Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 0.2 0.7 0.7
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject USE b
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.25965 -0.26437 0.0165855
+      rotation -0.40925816793216624 0.8434693461033782 0.3479471427742242 -1.642095307179586
+      children [
+        DEF c Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+          }
+          geometry Box {
+            size 0.1 1 1.5
+          }
+        }
+      ]
+      boundingObject USE c
+      physics Physics {
+        mass 0.3
+      }
+    }
+  ]
+  name "solid(9)"
+  physics Physics {
+    mass 0.3
+  }
+}
+WoodenBox {
+  translation 5.466167139652166 -11.992096207808153 -4.013128742397849
+  rotation -0.990291523482958 -0.003752893962938957 -0.13895543999680274 -3.0880492021568804
+  size 3 0.1 0.6
+  mass 0.3
+}
+WoodenBox {
+  translation 2.7103493375314325 -11.923213910697761 -2.7406782465094337
+  rotation -0.022292770899910393 0.9993861412141478 -0.02702541608744616 1.7624132481289911
+  name "wooden box(1)"
+  size 3 0.1 0.6
+  mass 0.3
+}
+WoodenBox {
+  translation 0.8811785054354663 -12.750125095755289 -0.284747849885032
+  rotation -1.1161590107172108e-17 1 4.97486760543798e-18 1.5118926113641955
+  name "wooden box(2)"
+  size 3 0.1 0.6
+  mass 0.3
+}
+WoodenBox {
+  translation 4.25921652682541 -11.682235905824395 1.7125336054627436
+  rotation -0.024151818863459535 0.9993429702907033 -0.02702438484297341 1.6832806588706453
+  name "wooden box(3)"
+  size 3 0.1 0.6
+  mass 0.3
+}
+WoodenBox {
+  translation 2.5681517251199453 -11.67628437974 1.8248303725269508
+  rotation -0.835150316719103 0.01487340270010414 0.5498206347310934 -3.096620715639475
+  name "wooden box(4)"
+  size 3 0.1 0.6
+  mass 0.3
+}
+WoodenBox {
+  translation -6.897615800980349 -11.581414398034973 3.5740519574419767
+  rotation -0.876633116042684 0.013008596031289031 0.48098353016146866 -3.09420021066918
+  name "wooden box(5)"
+  size 3 0.1 0.6
+  mass 0.3
+}
+WoodenBox {
+  translation -5.980936676404912 -11.948796096060834 -3.214701359146723
+  rotation -0.0019194718863030633 0.9996327666962093 -0.027030489728452994 2.9995431777384765
+  name "wooden box(6)"
+  size 3 0.1 0.6
+  mass 0.3
+}
+WoodenBox {
+  translation 0.8285604706617369 -11.682617444554996 1.7049755351505167
+  rotation -0.1429487181037563 -0.02675412906428103 -0.989368425092748 -3.1338557343292264
+  name "wooden box(7)"
+  size 3 0.1 0.6
+  mass 0.3
+}
+WoodenBox {
+  translation -7.5797483679161 -12.042064604742466 -4.938428472324157
+  rotation -0.999063411069568 0.0011734698684331489 0.04325417471767433 -3.08757650193195
+  name "wooden box(8)"
+  size 3 0.1 0.6
+  mass 0.3
+}
+WoodenBox {
+  translation 0.5807304120614513 -11.922916907440376 -2.7355073932100864
+  rotation -0.13320035413916692 -0.9907276312780473 0.02676614053968096 0.4005735872201636
+  name "wooden box(9)"
+  size 3 0.1 0.6
+  mass 0.3
+}
+WoodenBox {
+  translation -2.0724694997031694 -12.077608415841809 -5.563069256393734
+  rotation -0.6223524265230546 -0.7824536744773027 0.021064294382514163 0.08683989251753571
+  name "wooden box(10)"
+  size 10 0.1 10
+  mass 0.3
+}
+WoodenBox {
+  translation -6.8217843165363545 -11.804142107158384 -0.5104516999337039
+  rotation -0.24706404800347084 -0.9686461092661851 0.026154754589184887 0.2180212101730118
+  name "wooden box(11)"
+  size 10 0.1 10
+  mass 0.3
+}
+Solid {
+  translation 8.933244120684769 -11.999209762842435 -6.38151486526122
+  rotation -0.7180839957200541 0.4600992707275525 0.5221724199598211 1.8693317348492762
+  children [
+    Solid {
+      translation 0 0.5 0
+      children [
+        DEF t1 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 2 2 0.1
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject USE t1
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.72 1.25 -0.08
+      children [
+        DEF t2 Shape {
+          appearance PBRAppearance {
+          }
+          geometry Box {
+            size 0.4 0.11 0.11
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject USE t2
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.835912 1.21894 -0.17
+      rotation 0.5773519358536053 -0.5773479358540498 0.5773509358537164 2.09439
+      children [
+        DEF t3 Shape {
+          appearance PBRAppearance {
+          }
+          geometry Box {
+            size 0.2 0.1 0.11
+          }
+        }
+      ]
+      name "solid(3)"
+      boundingObject USE t3
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation -0.01 3.38 0
+      children [
+        DEF t4 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 2 0.2 0.1
+          }
+        }
+      ]
+      name "solid(4)"
+      boundingObject USE t4
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation -0.9 2.4 0
+      children [
+        DEF t5 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 0.2 2 0.1
+          }
+        }
+      ]
+      name "solid(5)"
+      boundingObject USE t5
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation -6.74634e-14 2.4 0
+      rotation 0 0 1 1.5708
+      children [
+        DEF t6 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 0.2 2 0.1
+          }
+        }
+      ]
+      name "solid(6)"
+      boundingObject USE t6
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.91 2.4 0
+      children [
+        DEF t7 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 0.2 2 0.1
+          }
+        }
+      ]
+      name "solid(7)"
+      boundingObject USE t7
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.06 2.4 0
+      children [
+        DEF t8 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 0.2 2 0.1
+          }
+        }
+      ]
+      name "solid(8)"
+      boundingObject USE t8
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation -0.328315 3.44 0.782059
+      rotation -0.8628568705184134 -0.35740494636728165 -0.3574069463669815 1.71777
+      children [
+        DEF t9 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 2 0.2 0.1
+          }
+        }
+      ]
+      name "solid(9)"
+      boundingObject USE t9
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation -0.856004 1.55 0.103068
+      rotation 0 1 0 -1.8325953071795862
+      children [
+        DEF t10 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 0.2 4 0.1
+          }
+        }
+      ]
+      name "solid(10)"
+      boundingObject USE t10
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.327248 1.49 1.4377
+      rotation 0 1 0 -2.3561953071795863
+      children [
+        DEF t11 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 0.2 4 0.1
+          }
+        }
+      ]
+      boundingObject USE t11
+      physics Physics {
+        mass 0.3
+      }
+    }
+  ]
+  name "solid(10)"
+  physics Physics {
+    mass 0.3
+  }
+}
+Solid {
+  translation 7.756855026592592 -11.763561762637616 -2.0269032293780844
+  rotation -0.18584771410691217 0.7001289879477879 0.6894055608975326 2.635570137475693
+  children [
+    Solid {
+      translation 0 0.5 0
+      children [
+        DEF t1 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 2 2 0.1
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject USE t1
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.72 1.25 -0.08
+      children [
+        DEF t2 Shape {
+          appearance PBRAppearance {
+          }
+          geometry Box {
+            size 0.4 0.11 0.11
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject USE t2
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.835912 1.21894 -0.17
+      rotation 0.5773519358536053 -0.5773479358540498 0.5773509358537164 2.09439
+      children [
+        DEF t3 Shape {
+          appearance PBRAppearance {
+          }
+          geometry Box {
+            size 0.2 0.1 0.11
+          }
+        }
+      ]
+      name "solid(3)"
+      boundingObject USE t3
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation -0.01 3.38 0
+      children [
+        DEF t4 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 2 0.2 0.1
+          }
+        }
+      ]
+      name "solid(4)"
+      boundingObject USE t4
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation -0.9 2.4 0
+      children [
+        DEF t5 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 0.2 2 0.1
+          }
+        }
+      ]
+      name "solid(5)"
+      boundingObject USE t5
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation -6.74634e-14 2.4 0
+      rotation 0 0 1 1.5708
+      children [
+        DEF t6 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 0.2 2 0.1
+          }
+        }
+      ]
+      name "solid(6)"
+      boundingObject USE t6
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.91 2.4 0
+      children [
+        DEF t7 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 0.2 2 0.1
+          }
+        }
+      ]
+      name "solid(7)"
+      boundingObject USE t7
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.06 2.4 0
+      children [
+        DEF t8 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 0.2 2 0.1
+          }
+        }
+      ]
+      name "solid(8)"
+      boundingObject USE t8
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation -0.328315 3.44 0.782059
+      rotation -0.8628568705184134 -0.35740494636728165 -0.3574069463669815 1.71777
+      children [
+        DEF t9 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 2 0.2 0.1
+          }
+        }
+      ]
+      name "solid(9)"
+      boundingObject USE t9
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation -0.856004 1.55 0.103068
+      rotation 0 1 0 -1.8325953071795862
+      children [
+        DEF t10 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 0.2 4 0.1
+          }
+        }
+      ]
+      name "solid(10)"
+      boundingObject USE t10
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.327248 1.49 1.4377
+      rotation 0 1 0 -2.3561953071795863
+      children [
+        DEF t11 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 0.2 4 0.1
+          }
+        }
+      ]
+      boundingObject USE t11
+      physics Physics {
+        mass 0.3
+      }
+    }
+  ]
+  name "solid(11)"
+  physics Physics {
+    mass 0.3
+  }
+}
+Solid {
+  translation -4.628194403174397 -10.702274914289315 4.396520998484558
+  rotation -0.6010570674015215 -0.6898352663513531 0.4035563244760766 -2.8011222164332708
+  children [
+    Solid {
+      translation 0 0.5 0
+      children [
+        DEF t1 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 2 2 0.1
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject USE t1
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.72 1.25 -0.08
+      children [
+        DEF t2 Shape {
+          appearance PBRAppearance {
+          }
+          geometry Box {
+            size 0.4 0.11 0.11
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject USE t2
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.835912 1.21894 -0.17
+      rotation 0.5773519358536053 -0.5773479358540498 0.5773509358537164 2.09439
+      children [
+        DEF t3 Shape {
+          appearance PBRAppearance {
+          }
+          geometry Box {
+            size 0.2 0.1 0.11
+          }
+        }
+      ]
+      name "solid(3)"
+      boundingObject USE t3
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation -0.01 3.38 0
+      children [
+        DEF t4 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 2 0.2 0.1
+          }
+        }
+      ]
+      name "solid(4)"
+      boundingObject USE t4
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation -0.9 2.4 0
+      children [
+        DEF t5 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 0.2 2 0.1
+          }
+        }
+      ]
+      name "solid(5)"
+      boundingObject USE t5
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation -6.74634e-14 2.4 0
+      rotation 0 0 1 1.5708
+      children [
+        DEF t6 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 0.2 2 0.1
+          }
+        }
+      ]
+      name "solid(6)"
+      boundingObject USE t6
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.91 2.4 0
+      children [
+        DEF t7 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 0.2 2 0.1
+          }
+        }
+      ]
+      name "solid(7)"
+      boundingObject USE t7
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.06 2.4 0
+      children [
+        DEF t8 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 0.2 2 0.1
+          }
+        }
+      ]
+      name "solid(8)"
+      boundingObject USE t8
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation -0.328315 3.44 0.782059
+      rotation -0.8628568705184134 -0.35740494636728165 -0.3574069463669815 1.71777
+      children [
+        DEF t9 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 2 0.2 0.1
+          }
+        }
+      ]
+      name "solid(9)"
+      boundingObject USE t9
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation -0.856004 1.55 0.103068
+      rotation 0 1 0 -1.8325953071795862
+      children [
+        DEF t10 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 0.2 4 0.1
+          }
+        }
+      ]
+      name "solid(10)"
+      boundingObject USE t10
+      physics Physics {
+        mass 0.3
+      }
+    }
+    Solid {
+      translation 0.327248 1.49 1.4377
+      rotation 0 1 0 -2.3561953071795863
+      children [
+        DEF t11 Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.4 0
+          }
+          geometry Box {
+            size 0.2 4 0.1
+          }
+        }
+      ]
+      boundingObject USE t11
+      physics Physics {
+        mass 0.3
+      }
+    }
+  ]
+  name "solid(12)"
+  physics Physics {
+    mass 0.3
+  }
+}

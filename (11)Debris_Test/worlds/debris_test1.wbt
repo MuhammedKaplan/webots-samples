@@ -1,0 +1,1235 @@
+#VRML_SIM R2021a utf8
+DEF _ WorldInfo {
+  info [
+    "Example use of a Supervisor to manipulate the world."
+  ]
+  title "Supervisor Programming"
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.00913400988857444 0.9999042259028238 0.010397542259108512 4.583090327415419
+  position -11.421004744023422 0.13609360777993995 -10.486118004657584
+  followType "None"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 25 25
+  floorAppearance PBRAppearance {
+    baseColor 0 0 0
+    metalness 0
+  }
+  wallHeight 0.011
+  wallAppearance PBRAppearance {
+  }
+}
+Transform {
+  translation 0 0.775 -0.6
+  rotation 1 0 0 -0.06478
+  children [
+    Transform {
+      translation -8 0.01 -10.01
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0 1 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation -4 0.01 -10.01
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation 0 0.01 -10.01
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation 4 0.01 -10.01
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation 8 0.01 -10.01
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation 8 0.01 -6
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation 8 0.01 -2
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation 8 0.01 2
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation 8 0.01 6
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation 4 0.01 6
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation 0 0.01 6
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation -4 0.01 6
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation -8 0.01 6
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation -8 0.01 2
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation -8 0.01 -2
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation -8 0.01 -6
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation -4 0.01 -6
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation 0 0.01 -6
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation 4 0.01 -6
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation 4 0.01 -2
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation 4 0.01 2
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation 0 0.01 2
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation -4 0.01 2
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation -4 0.01 -2
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+    Transform {
+      translation 0 0.01 -2
+      children [
+        Transform {
+          children [
+            DEF LINE Shape {
+              appearance PBRAppearance {
+                baseColor 0.0235294 0.498039 0
+                metalness 0
+              }
+              geometry Box {
+                size 4 0.0001 0.05
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -1.99 0 1.99
+          rotation 0 1 0 -1.5707
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation -0.01 0 4
+          children [
+            USE LINE
+          ]
+        }
+        Transform {
+          translation 2 0 2
+          rotation 0 1 0 1.5707
+          children [
+            USE LINE
+          ]
+        }
+      ]
+    }
+  ]
+}
+Solid {
+  translation 0 -8.64 0
+  rotation -0.9999717520408498 -0.007087055649967875 0.0025037497013780156 0.06475620398718808
+  children [
+    Solid {
+      translation -1.181743840158211e-17 9.38644329316258 0
+      rotation 0 1 0 1.0445965899975968e-22
+      children [
+        RectangleArena {
+          translation 0 0.02 0
+          floorSize 20 20
+          wallHeight 0.0001
+          wallAppearance PBRAppearance {
+          }
+        }
+      ]
+      name "solid_floor"
+      boundingObject DEF taban Shape {
+        appearance PBRAppearance {
+          baseColor 0.443137 0.443137 0.443137
+          metalness 0
+        }
+        geometry Box {
+          size 20 0.1 20
+        }
+      }
+      physics Physics {
+        mass 1
+      }
+    }
+    Solid {
+      translation 0.370003 8.7756 7.53109
+      rotation -0.6546540822242307 0.6546540822242307 -0.37796304747197285 -2.418865307179586
+      children [
+        DEF kolon4 Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 0.498039
+            metalness 0
+          }
+          geometry Box {
+            size 2 13 0.3
+          }
+        }
+      ]
+      boundingObject USE kolon4
+      physics Physics {
+        mass 1
+      }
+    }
+  ]
+  physics Physics {
+    mass 1
+  }
+}
+DEF MY_ROBOT Robot {
+  translation -9.75 0.369721 -10.25
+  rotation 0 1 0 1.5708
+  children [
+    DEF BODY Shape {
+      appearance PBRAppearance {
+        baseColor 0.917647 0.145098 0.145098
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.1 0.05 0.2
+      }
+    }
+    Transform {
+      translation 0 0 0.11
+      children [
+        Shape {
+          appearance PBRAppearance {
+          }
+          geometry Box {
+            size 0.015 0.015 0.03
+          }
+        }
+      ]
+    }
+    DEF wheelLeftF HingeJoint {
+      jointParameters HingeJointParameters {
+        position 10.843115051546132
+        anchor 0.06 0 0.05
+      }
+      device [
+        PositionSensor {
+          name "ps_left"
+        }
+        RotationalMotor {
+          name "leftF"
+        }
+      ]
+      endPoint Solid {
+        translation 0.05999999999999872 0 0.049999999999998934
+        rotation -0.6045280952659151 0.6045303158256775 0.5187377750673947 2.1845452288989433
+        children [
+          DEF WHEEL Shape {
+            appearance PBRAppearance {
+              baseColor 0.305882 0.898039 0.25098
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+              subdivision 24
+            }
+          }
+        ]
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF wheelRightF HingeJoint {
+      jointParameters HingeJointParameters {
+        position -10.843119380646712
+        anchor -0.06 0 0.05
+      }
+      device [
+        PositionSensor {
+          name "ps_right"
+        }
+        RotationalMotor {
+          name "rightF"
+        }
+      ]
+      endPoint Solid {
+        translation -0.0600000000000005 0 0.049999999999998934
+        rotation 0.604527382777328 -0.604529603334474 0.518739435713786 2.184542611837557
+        children [
+          USE WHEEL
+        ]
+        name "solid(1)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF wheelLeftR HingeJoint {
+      jointParameters HingeJointParameters {
+        position 10.843119380817537
+        anchor 0.06 0 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "leftR"
+        }
+      ]
+      endPoint Solid {
+        translation 0.05999999999999872 0 -0.05000000000000071
+        rotation -0.6045273827492142 0.604529603306359 0.5187394357793144 2.1845426117342885
+        children [
+          USE WHEEL
+        ]
+        name "solid(2)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF wheelRightR HingeJoint {
+      jointParameters HingeJointParameters {
+        position -10.843115051308642
+        anchor -0.06 0 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "rightR"
+        }
+      ]
+      endPoint Solid {
+        translation -0.0600000000000005 0 -0.05000000000000071
+        rotation 0.6045280953050011 -0.604530315864764 0.5187377749762938 2.184545229042512
+        children [
+          USE WHEEL
+        ]
+        name "solid(3)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    Compass {
+    }
+    InertialUnit {
+      name "iu"
+    }
+    DistanceSensor {
+      translation 0 -0.0075 0.122
+      rotation 0 0 1 -1.5707
+      name "ds_fall1"
+    }
+    DistanceSensor {
+      translation 0 0.0075 0.122
+      rotation 0 0 1 1.5707
+      name "ds_fall2"
+    }
+    DistanceSensor {
+      translation -9.63268e-07 0 0.125
+      rotation 0 1 0 -1.5707
+      name "ds_front"
+      lookupTable [
+        0 0 0
+        0.8 2000 0
+      ]
+    }
+    DistanceSensor {
+      translation 0 0 0.125
+      rotation 0 1 0 -1.957
+      name "ds_front_right"
+      lookupTable [
+        0 0 0
+        0.8 2000 0
+      ]
+    }
+    DistanceSensor {
+      translation 0 0 0.125
+      rotation 0 1 0 -1.184
+      name "ds_front_left"
+      lookupTable [
+        0 0 0
+        0.8 2000 0
+      ]
+    }
+    DistanceSensor {
+      translation 0.05 0 0
+      name "ds_left"
+      lookupTable [
+        0 0 0
+        0.8 2000 0
+      ]
+    }
+    DistanceSensor {
+      translation -0.05 0 0
+      rotation 0 1 0 3.1414
+      name "ds_right"
+      lookupTable [
+        0 0 0
+        0.8 2000 0
+      ]
+    }
+  ]
+  boundingObject USE BODY
+  physics Physics {
+    density -1
+    mass 1
+  }
+  controller "path_finding_next_grid"
+  supervisor TRUE
+}
